@@ -24,16 +24,19 @@ document.body.insertBefore(setPixels,container);
 
 setPixels.addEventListener("click", () =>{
 
-    const userInput = parseInt(prompt("Set how many squares you want per side","16"));
+    let userInput = parseInt(prompt("Set how many squares you want per side","16"));
+
+    if(isNaN(userInput) || userInput < 1){
+        alert("Please enter a valid number");
+        return;
+    }
 
     if(userInput>100){
-        alert("Maximum legth is 100");
-    };
+        userInput = 100;
+        alert("Maximum length is 100");
+    }
 
-    const allPixels = document.querySelectorAll(".pixel");
-    allPixels.forEach(element => {
-        element.remove();
-    })
+    document.querySelectorAll(".pixel").forEach(pixel => pixel.remove());
     createPixels(userInput);
 });
 
