@@ -7,7 +7,7 @@ body{
 }
 
 /* button */
-#setPixels{
+#setPixels, #clear{
     box-sizing: border-box;
     margin-top: 50px;
     margin-bottom: 50px;
