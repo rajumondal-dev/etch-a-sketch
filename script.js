@@ -17,10 +17,11 @@ allPixels.forEach(pixel=>{
 
 createPixels(16);
 
+const buttonContainer = document.querySelector("#buttonContainer");
 const setPixels = document.createElement("button");
 setPixels.setAttribute("id","setPixels");
 setPixels.textContent = "Set Pixels";
-document.body.insertBefore(setPixels,container);
+buttonContainer.append(setPixels);
 
 setPixels.addEventListener("click", () =>{
 
@@ -43,7 +44,7 @@ setPixels.addEventListener("click", () =>{
 const clear = document.createElement("button");
 clear.setAttribute("id","clear");
 clear.textContent = "Clear";
-document.body.insertBefore(clear,container);
+buttonContainer.append(clear);
 
 
 clear.addEventListener("click", () => {

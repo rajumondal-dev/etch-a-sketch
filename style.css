@@ -7,10 +7,17 @@ body{
 }
 
 /* button */
-#setPixels, #clear{
+#setPixels{
     box-sizing: border-box;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-right: 5px;
+}
+#clear{
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 5px;
 }
 
 #container{
