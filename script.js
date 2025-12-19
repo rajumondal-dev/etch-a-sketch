@@ -9,9 +9,17 @@ function createPixels(number){
 };
 const allPixels = document.querySelectorAll(".pixel");
 allPixels.forEach(pixel=>{
-    pixel.addEventListener("mouseenter",()=>{
-    pixel.style.backgroundColor = "black";
-    })
+    pixel.addEventListener("mouseenter", () => {
+    if (rgbMode) {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        pixel.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } else {
+        pixel.style.backgroundColor = "black";
+    }
+});
+
 });
 }
 
@@ -40,6 +48,18 @@ setPixels.addEventListener("click", () =>{
     document.querySelectorAll(".pixel").forEach(pixel => pixel.remove());
     createPixels(userInput);
 });
+
+
+const rgbButton = document.createElement("button");
+rgbButton.setAttribute("id", "rgbMode");
+rgbButton.textContent = "RGB Mode";
+buttonContainer.append(rgbButton);
+
+rgbButton.addEventListener("click", () => {
+    rgbMode = !rgbMode;
+    rgbButton.textContent = rgbMode ? "Black Mode" : "RGB Mode";
+});
+
 
 const clear = document.createElement("button");
 clear.setAttribute("id","clear");
