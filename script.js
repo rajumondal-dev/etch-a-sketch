@@ -1,4 +1,9 @@
 const container = document.querySelector("#container");
+
+let mouseDown = false
+window.onmousedown = () => mouseDown = true;
+window.onmouseup = () => mouseDown = false;
+
 function createPixels(number){
     for(let i=0; i<(number*number); i++){
     const pixel = document.createElement("div");
@@ -10,6 +15,9 @@ function createPixels(number){
 const allPixels = document.querySelectorAll(".pixel");
 allPixels.forEach(pixel=>{
     pixel.addEventListener("mouseenter", () => {
+
+    if (!mouseDown) return;
+        
     if (rgbMode) {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
